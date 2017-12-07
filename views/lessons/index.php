@@ -16,8 +16,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Lessons', ['create'], ['class' => 'btn btn-success']) ?>
+        <?php // Html::a('Create Lessons', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+
+    <?php
+
+    //yii\helpers\VarDumper::dump($dataProvider->getModels(), 10, true);
+
+    ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -25,11 +31,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'name',
-            'group_id',
+            //'id',
+            'lesson_name',
+            'group',
+            'teacher',
             'time',
-            'created_at',
+            //'created_at',
             //'updated_at',
 
             ['class' => 'yii\grid\ActionColumn'],

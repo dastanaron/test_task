@@ -1,0 +1,11 @@
+SELECT
+        lessons.id, lessons.name AS `lesson_name`,
+        lessons.time, groups.name AS `group`,
+        CONCAT_WS(' ', teachers.name, teachers.surname) AS `teacher`,
+        IF (lessons.time IS NULL, 0, 1) AS `isFirst`
+      FROM `lessons`
+      LEFT JOIN
+        groups ON lessons.group_id = groups.id
+      LEFT JOIN
+        teachers ON groups.teacher_id = teachers.id
+        ORDER BY isFirst DESC, lessons.time ASC
